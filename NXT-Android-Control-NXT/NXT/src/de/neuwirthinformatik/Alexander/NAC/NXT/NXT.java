@@ -12,7 +12,8 @@ import de.neuwirthinformatik.Alexander.NAC.GLOBAL.NxtCommand;
 
 public class NXT 
 {
-	DifferentialPilot dp;
+	//DifferentialPilot dp;
+	DP dp;
 	NXTMotor nm;
 	NxtCommandHandler nch;
 	ColorSensor cs;
@@ -20,8 +21,9 @@ public class NXT
 	
 	public NXT(double leftWheelDiameter, double rightWheelDiameter, double trackWidth, boolean reverse)
 	{
-		dp = new DifferentialPilot(leftWheelDiameter, rightWheelDiameter, trackWidth, Motor.A ,Motor.C, reverse);
-		dp.setRotateSpeed(300);
+		dp = new DP(300);
+		//dp = new DifferentialPilot(leftWheelDiameter, rightWheelDiameter, trackWidth, Motor.A ,Motor.C, reverse);
+		//dp.setRotateSpeed(300);
 		nch = new NxtCommandHandler(this);
 		cs = new ColorSensor(SensorPort.S2);
 		us = new UltrasonicSensor(SensorPort.S1);
@@ -38,8 +40,8 @@ public class NXT
 	
 	public double getDistance()
 	{
-		LCD.drawString(""+us.getRange()+ "     ", 0, 4);
-		LCD.drawString(""+us.getDistance() + "      ", 0, 5);
+		//LCD.drawString(""+us.getRange()+ "     ", 0, 4);
+		//LCD.drawString(""+us.getDistance() + "      ", 0, 5);
 		return (double)us.getRange();
 	}
 	

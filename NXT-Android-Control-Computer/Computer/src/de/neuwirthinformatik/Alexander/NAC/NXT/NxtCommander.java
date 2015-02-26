@@ -20,12 +20,12 @@ public class NxtCommander
 	
 	public void forward()
 	{
-		exec(new NxtCommand((short)1,-1));
+		exec(new NxtCommand((short)1,0));
 	}
 	
 	public void backward()
 	{
-		exec(new NxtCommand((short)2,-1));
+		exec(new NxtCommand((short)2,0));
 	}
 	
 	public void right()
@@ -60,7 +60,7 @@ public class NxtCommander
 	
 	public void stop()
 	{
-		exec(new NxtCommand((short)6,-1));
+		exec(new NxtCommand((short)6,0));
 	}
 	
 	public void speed(int number)
@@ -99,6 +99,6 @@ public class NxtCommander
 	
 	public void rotateRst()
 	{
-		exec(new NxtCommand((short)8,-1));
+		exec(new NxtCommand((short)8,0));
 	}
 }

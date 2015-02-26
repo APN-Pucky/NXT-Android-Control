@@ -27,7 +27,7 @@ public class BTClientListener
 		if(p.getId() == PacketMapData.id)
 		{
 			PacketMapData pmd = (PacketMapData)p;
-			Log.e("SONAR", "VALUE: " +pmd.getSonar());
+			//Log.e("SONAR", "VALUE: " +pmd.getSonar());
 			PacketMapData npmd = new PacketMapData(pmd.getMotor_B_Rotation(),GPSListener.getLongitude(),GPSListener.getLatitude(),CompassListener.getAzimuth(),pmd.getSonar());
 			COM.sendPC(npmd);
 		}

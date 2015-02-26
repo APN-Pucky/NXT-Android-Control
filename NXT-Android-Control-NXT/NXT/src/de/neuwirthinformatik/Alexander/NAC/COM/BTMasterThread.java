@@ -14,11 +14,14 @@ public class BTMasterThread extends Thread
 	PacketHandler ph = null;
 	BTMasterListener btml;
 	BTConnection btc;
+	PingCheckThread pct;
+	boolean running = true;
 	
 	public BTMasterThread(NXT nxt)
 	{
 		this.nxt = nxt;
 		this.btml = new BTMasterListener(nxt);
+		pct = new PingCheckThread(nxt);
 	}
 	
 	public void run()
@@ -28,10 +31,16 @@ public class BTMasterThread extends Thread
 		btc = Bluetooth.waitForConnection(0,NXTConnection.RAW);
 		LCD.drawString("Connected...", 0, 1);
 		ph = new PacketHandler(btc.openOutputStream(),btc.openInputStream());
-		while(true)
+		pct.start();
+		pct.updateLastNano();
+		while(running)
 		{
 			Packet p = ph.readPacket();
-			if(p!=null)btml.onPacket(p);
+			if(p!=null)
+			{
+				pct.updateLastNano();
+				btml.onPacket(p);
+			}
 		}
 	}
 	

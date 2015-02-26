@@ -1,5 +1,6 @@
 package de.neuwirthinformatik.Alexander.NAC.NXT;
 
+import lejos.nxt.LCD;
 import lejos.nxt.Motor;
 import de.neuwirthinformatik.Alexander.NAC.GLOBAL.NxtCommand;
 

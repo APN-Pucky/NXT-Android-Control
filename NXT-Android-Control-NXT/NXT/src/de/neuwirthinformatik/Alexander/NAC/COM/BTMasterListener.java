@@ -11,6 +11,7 @@ import de.neuwirthinformatik.Alexander.NAC.NXT.NXT;
 public class BTMasterListener 
 {
 	NXT nxt;
+	int i=0;
 	
 	public BTMasterListener(NXT nxt)
 	{
@@ -22,6 +23,8 @@ public class BTMasterListener
 		if(p.getId() == PacketNxtCommand.id)
 		{
 			PacketNxtCommand pnc = (PacketNxtCommand)p;
+			i++;
+			LCD.drawString(""+i, 0, 4);
 			nxt.execComand(pnc.getNxtComand());
 		}
 		if(p.getId() == PacketString.id)

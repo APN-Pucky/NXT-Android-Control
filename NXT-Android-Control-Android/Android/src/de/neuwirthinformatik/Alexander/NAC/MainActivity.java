@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.hardware.Camera;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.location.LocationManager;
@@ -33,6 +32,7 @@ public class MainActivity extends Activity
 	public static MainActivity _this;
 	public CameraPreview mPreview;
 	public AudioThread mAudio;
+	public PingThread mPing;
 	LocationManager locationManager;
 	SensorManager sensorManager;
 	CompassListener cl;
@@ -62,6 +62,9 @@ public class MainActivity extends Activity
         
         mAudio = new AudioThread();
         mAudio.start();
+        
+        mPing = new PingThread();
+        mPing.start();
         
         initKA();
         initVol();
@@ -135,7 +138,7 @@ public class MainActivity extends Activity
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle("Host");
 		final EditText inhost = new EditText(this);	
-		inhost.setText("192.168.201.13:3070&00:16:53:13:04:18");
+		inhost.setText("192.168.43.204:3070&00:16:53:13:04:18");
 		builder.setView(inhost);
 		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() { 
 		    @Override

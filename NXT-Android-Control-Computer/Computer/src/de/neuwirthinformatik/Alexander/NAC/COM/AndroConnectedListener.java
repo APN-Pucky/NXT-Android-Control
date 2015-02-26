@@ -47,7 +47,7 @@ public class AndroConnectedListener
 			//System.out.println("Rotation Motor B: " + pmd.getMotor_B_Rotation());
 			//System.out.println("Longitude: " + pmd.getLongitude() + " Latitude: " + pmd.getLatitude());
 			//System.out.println("Compass: " + pmd.getCompass());
-			System.out.println("Dis: " + pmd.getSonar());
+			//System.out.println("Dis: " + pmd.getSonar());
 		}
 		if(p.getId() == PacketStop.id)
 		{

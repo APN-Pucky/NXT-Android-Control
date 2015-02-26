@@ -11,6 +11,7 @@ import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.PacketMapData;
 import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.PacketMute;
 import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.PacketNxtCommand;
 import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.PacketNxtData;
+import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.PacketPing;
 import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.PacketShort;
 import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.PacketSpeakString;
 import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.PacketStop;
@@ -51,6 +52,7 @@ public class PacketFactory
 			case(13):return new PacketAudio(data);
 			case(14):return new PacketMute(data);
 			case(15):return new PacketLang(data);
+			case(16):return new PacketPing(data);
 		}
 		return null;
 	}
