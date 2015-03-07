@@ -2,6 +2,7 @@ package de.neuwirthinformatik.Alexander.NAC.COM;
 
 import java.util.Locale;
 
+import android.util.Log;
 import de.neuwirthinformatik.Alexander.NAC.MainActivity;
 import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.Packet;
 import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.PacketFlash;
@@ -24,12 +25,11 @@ public class AndroClientListener
 		if(p.getId() == PacketNxtCommand.id)
 		{
 			PacketNxtCommand pnc = (PacketNxtCommand)p;
-			//Log.e("PNC",pnc.getNxtComand().getType()+ ":" + pnc.getNxtComand().getAdd());
-			if(pnc.getId()==1)
+			if(pnc.getNxtId()==1)
 			{
 				COM.sendNXT1(pnc);
 			}
-			else if(pnc.getId()==2)
+			else if(pnc.getNxtId()==2)
 			{
 				COM.sendNXT2(pnc);
 			}
@@ -51,7 +51,7 @@ public class AndroClientListener
 			MainActivity._this.mPreview.toggleFlash();
 			COM.sendNXT1(p);
 			COM.sendNXT2(p);
-		}
+		} 
 		if(p.getId() == PacketSwapCamera.id)
 		{
 			MainActivity._this.mPreview.swapCamera();

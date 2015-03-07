@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Locale;
 
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import de.neuwirthinformatik.Alexander.NAC.MainActivity;
 import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.Packet;
 

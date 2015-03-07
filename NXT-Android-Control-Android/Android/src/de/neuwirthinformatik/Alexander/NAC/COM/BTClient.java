@@ -17,11 +17,13 @@ public class BTClient extends Thread
 	public BTClient(String mac)
 	{
 		this.mac = mac;
+		
+		//test
+		
 	}
 	
 	public void run()
 	{
-		
 		boolean connected = true;
 		BluetoothAdapter bta;
 		BluetoothDevice btd;
@@ -36,8 +38,8 @@ public class BTClient extends Thread
 				bta.cancelDiscovery();
 				btd = bta.getRemoteDevice(mac);
 				//Log.e("puckylog","prerf");
-				//bts = btd.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
-				bts = btd.createRfcommSocketToServiceRecord(UUID.randomUUID());
+				bts = btd.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
+				//bts = btd.createRfcommSocketToServiceRecord(UUID.randomUUID());
 				//Log.e("puckylog","postrf");
 				bts.connect();
 				//Log.e("puckylog","postcon");

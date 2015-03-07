@@ -21,6 +21,8 @@ public class BTClientListener
 		if(p.getId() == PacketStop.id)
 		{
 			COM.sendPC(p);
+			COM.sendNXT1(p);
+			COM.sendNXT2(p);
 			PacketStop ps = (PacketStop)p;
 			MainActivity._this.exit(ps.getCause()==-1?"Error":"Exit");
 		}

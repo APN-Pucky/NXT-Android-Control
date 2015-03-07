@@ -10,6 +10,7 @@ public class PacketNxtCommand extends Packet
 	public static final short id = 6;
 	NxtCommand nc;
 	short nxt_id;
+	
 	public PacketNxtCommand(NxtCommand n, short nxt_id) 
 	{
 		this.nc =n;
@@ -58,8 +59,8 @@ public class PacketNxtCommand extends Packet
 		return nc;
 	}
 	
-	public NxtCommand getNxtId()
+	public short getNxtId()
 	{
-		return nc;
+		return nxt_id;
 	}
 }

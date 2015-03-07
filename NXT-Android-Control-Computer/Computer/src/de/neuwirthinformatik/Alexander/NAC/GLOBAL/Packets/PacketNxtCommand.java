@@ -58,8 +58,8 @@ public class PacketNxtCommand extends Packet
 		return nc;
 	}
 	
-	public NxtCommand getNxtId()
+	public short getNxtId()
 	{
-		return nc;
+		return nxt_id;
 	}
 }
