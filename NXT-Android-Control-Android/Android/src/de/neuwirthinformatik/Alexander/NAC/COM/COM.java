@@ -10,13 +10,16 @@ import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.Packet;
 public class COM 
 {
 	static AndroClient ac;
-	static BTClient btc;
+	static BTClient btc1;
+	static BTClient btc2;
 	static TextToSpeech tts;
 	
-	public static void setup(String host, int port, String mac)
+	public static void setup(String host, int port, String mac1, String mac2)
 	{
-		btc = new BTClient(mac);
-		btc.start();
+		btc1 = new BTClient(mac1);
+		btc1.start();
+		btc2 = new BTClient(mac2);
+		btc2.start();
 		ac = new AndroClient(host,port);
 		ac.start();
 		tts = new TextToSpeech(MainActivity._this,null);
@@ -52,24 +55,49 @@ public class COM
 				}
 			}
 		}
-		if(btc != null && btc.btct != null )
+		if(btc1 != null && btc1.btct != null )
 		{
-			if(btc.btct.bs != null)
+			if(btc1.btct.bs != null)
 			{
 				try 
 				{
-					btc.btct.bs.close();
+					btc1.btct.bs.close();
 				} 
 				catch (IOException e) 
 				{
 					e.printStackTrace();
 				}
 			}
-			if(btc.btct.ph != null)
+			if(btc1.btct.ph != null)
 			{
 				try 
 				{
-					btc.btct.ph.close();
+					btc1.btct.ph.close();
+				} 
+				catch (IOException e) 
+				{
+					e.printStackTrace();
+				}
+			}
+		}
+		if(btc2 != null && btc2.btct != null )
+		{
+			if(btc2.btct.bs != null)
+			{
+				try 
+				{
+					btc2.btct.bs.close();
+				} 
+				catch (IOException e) 
+				{
+					e.printStackTrace();
+				}
+			}
+			if(btc2.btct.ph != null)
+			{
+				try 
+				{
+					btc2.btct.ph.close();
 				} 
 				catch (IOException e) 
 				{
@@ -82,7 +110,8 @@ public class COM
 			tts.shutdown();
 		}
 		ac = null;
-		btc = null;
+		btc1 = null;
+		btc2 = null;
 		tts = null;
 	}
 	
@@ -96,8 +125,13 @@ public class COM
 		if(ac != null)ac.sendPC(p);
 	}
 	
-	public static void sendNXT(Packet p)
+	public static void sendNXT1(Packet p)
 	{
-		if(btc != null)btc.sendNXT(p);
+		if(btc1 != null)btc1.sendNXT(p);
+	}
+	
+	public static void sendNXT2(Packet p)
+	{
+		if(btc2 != null)btc2.sendNXT(p);
 	}
 }

@@ -138,7 +138,7 @@ public class MainActivity extends Activity
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle("Host");
 		final EditText inhost = new EditText(this);	
-		inhost.setText("192.168.43.204:3070&00:16:53:13:04:18");
+		inhost.setText("192.168.43.204:3070&00:16:53:13:04:18&00:16:53:0c:94:6b");
 		builder.setView(inhost);
 		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() { 
 		    @Override
@@ -146,13 +146,14 @@ public class MainActivity extends Activity
 		        String input = inhost.getText().toString();
 		        if(!input.contains(":") || !input.contains("&"))exit("Wrong Format");
 		        String pc = input.split("&")[0];
-		        String mac = input.split("&")[1];
+		        String mac1 = input.split("&")[1];
+		        String mac2 = input.split("&")[2];
 		        
 		        String host = pc.split(":")[0];
 		        String s_port = pc.split(":")[1];
 		        int port = Integer.parseInt(s_port);
 		        
-		        start(host,port,mac);
+		        start(host,port,mac1,mac2);
 		    }
 		});
 		builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -165,9 +166,9 @@ public class MainActivity extends Activity
 		builder.show();
 	}
 	
-	public void start(String host, int port, String mac)
+	public void start(String host, int port, String mac1, String mac2)
 	{
-		COM.setup(host, port, mac);
+		COM.setup(host, port, mac1,mac2);
 		//COM.sendNXT(new PacketNxtComand(new NxtComand((short)5,3)));
 		//COM.sendNXT(new PacketNxtComand(new NxtComand((short)1,-1)));
 	}
@@ -187,7 +188,8 @@ public class MainActivity extends Activity
 	public void onStop()
 	{
 		COM.sendPC(new PacketStop((short)0));
-		COM.sendNXT(new PacketStop((short)0));
+		COM.sendNXT1(new PacketStop((short)0));
+		COM.sendNXT2(new PacketStop((short)0));
 		COM.stop();
 		sensorManager.unregisterListener(cl);
 		locationManager.removeUpdates(gpsl);

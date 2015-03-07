@@ -31,9 +31,5 @@ public class BTClientListener
 			PacketMapData npmd = new PacketMapData(pmd.getMotor_B_Rotation(),GPSListener.getLongitude(),GPSListener.getLatitude(),CompassListener.getAzimuth(),pmd.getSonar());
 			COM.sendPC(npmd);
 		}
-		if(p.getId() == PacketShort.id)
-		{
-			
-		}
 	}
 }

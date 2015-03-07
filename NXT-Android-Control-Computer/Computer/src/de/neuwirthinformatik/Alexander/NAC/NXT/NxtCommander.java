@@ -7,15 +7,16 @@ import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.PacketNxtCommand;
 public class NxtCommander 
 {
 	int lastspeed;
+	short id;
 	
-	public NxtCommander()
+	public NxtCommander(short id)
 	{
-		
+		this.id = id;
 	}
 	
 	public void exec(NxtCommand nc)
 	{
-		COM.sendAndro(new PacketNxtCommand(nc));
+		COM.sendAndro(new PacketNxtCommand(nc,id));
 	}
 	
 	public void forward()

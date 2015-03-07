@@ -36,10 +36,10 @@ public class ImageGUI extends JFrame
 	boolean flash = false;
 	String lang = "de_DE";
 	
-	public ImageGUI(int width, int height, int parm_millirepaint,NxtCommander nc)
+	public ImageGUI(int width, int height, int parm_millirepaint,NxtCommander nc1,NxtCommander nc2)
 	{
 		setTitle("NxtAndroControl");
-		KeyAndMouseListenerIG kamlig = new KeyAndMouseListenerIG(nc);
+		KeyAndMouseListenerIG kamlig = new KeyAndMouseListenerIG(nc1,nc2);
 		WindowListenerIG wlig = new WindowListenerIG();
 		//setLayout(null);
 			jmv = new JMapViewer();

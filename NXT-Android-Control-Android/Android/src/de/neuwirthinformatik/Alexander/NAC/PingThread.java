@@ -19,7 +19,8 @@ public class PingThread extends Thread
 			{
 				e.printStackTrace();
 			}
-			COM.sendNXT(new PacketPing());
+			COM.sendNXT1(new PacketPing());
+			COM.sendNXT2(new PacketPing());
 		}
 	}
 }

@@ -35,8 +35,9 @@ public class AndroConnectedThread extends Thread
 			System.err.println(e);
 			System.exit(1);
 		}
-		NxtCommander nc = new NxtCommander();
-		ig = new ImageGUI(Toolkit.getDefaultToolkit().getScreenSize().width,Toolkit.getDefaultToolkit().getScreenSize().height,15,nc);
+		NxtCommander nc1 = new NxtCommander((short) 1);
+		NxtCommander nc2 = new NxtCommander((short) 2);
+		ig = new ImageGUI(Toolkit.getDefaultToolkit().getScreenSize().width,Toolkit.getDefaultToolkit().getScreenSize().height,15,nc1,nc2);
 		apl = new AndroConnectedListener(ig);
 	}
 	

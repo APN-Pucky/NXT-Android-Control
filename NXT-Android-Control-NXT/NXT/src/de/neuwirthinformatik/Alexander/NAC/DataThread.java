@@ -9,6 +9,7 @@ import de.neuwirthinformatik.Alexander.NAC.NXT.NXT;
 public class DataThread extends Thread
 {
 	NXT nxt;
+	boolean running = true;
 	
 	public DataThread(NXT nxt)
 	{
@@ -16,7 +17,8 @@ public class DataThread extends Thread
 	}
 	public void run()
 	{
-		while(true)
+		if(nxt.getId() != 1)return;
+		while(running)
 		{
 			try 
 			{

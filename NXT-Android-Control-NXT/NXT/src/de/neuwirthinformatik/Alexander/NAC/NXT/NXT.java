@@ -13,6 +13,7 @@ import de.neuwirthinformatik.Alexander.NAC.GLOBAL.NxtCommand;
 public class NXT 
 {
 	//DifferentialPilot dp;
+	short id = 1;
 	DP dp;
 	NXTMotor nm;
 	NxtCommandHandler nch;
@@ -48,5 +49,10 @@ public class NXT
 	public void execComand(NxtCommand nc)
 	{
 		nch.exec(nc);
+	}
+	
+	public short getId()
+	{
+		return id;
 	}
 }

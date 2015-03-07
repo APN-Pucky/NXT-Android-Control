@@ -25,11 +25,19 @@ public class AndroClientListener
 		{
 			PacketNxtCommand pnc = (PacketNxtCommand)p;
 			//Log.e("PNC",pnc.getNxtComand().getType()+ ":" + pnc.getNxtComand().getAdd());
-			COM.sendNXT(pnc);
+			if(pnc.getId()==1)
+			{
+				COM.sendNXT1(pnc);
+			}
+			else if(pnc.getId()==2)
+			{
+				COM.sendNXT2(pnc);
+			}
 		}
 		if(p.getId() == PacketStop.id)
 		{
-			COM.sendNXT(p);
+			COM.sendNXT1(p);
+			COM.sendNXT2(p);
 			PacketStop ps = (PacketStop)p;
 			MainActivity._this.exit(ps.getCause()==-1?"Error":"Exit");
 		}
@@ -41,7 +49,8 @@ public class AndroClientListener
 		if(p.getId() == PacketFlash.id)
 		{
 			MainActivity._this.mPreview.toggleFlash();
-			COM.sendNXT(p);
+			COM.sendNXT1(p);
+			COM.sendNXT2(p);
 		}
 		if(p.getId() == PacketSwapCamera.id)
 		{

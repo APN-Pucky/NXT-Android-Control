@@ -14,12 +14,14 @@ import de.neuwirthinformatik.Alexander.NAC.NXT.NxtCommander;
 public class KeyAndMouseListenerIG implements KeyListener,MouseListener
 {
 	ImageGUI ig;
-	NxtCommander nc;
+	NxtCommander nc1;
+	NxtCommander nc2;
 	boolean txt = false;
 	
-	public KeyAndMouseListenerIG(NxtCommander nc)
+	public KeyAndMouseListenerIG(NxtCommander nc1,NxtCommander nc2)
 	{
-		this.nc = nc;
+		this.nc1 = nc1;
+		this.nc2 = nc2;
 	}
 	
 	public void setIG(ImageGUI ig)
@@ -98,31 +100,37 @@ public class KeyAndMouseListenerIG implements KeyListener,MouseListener
 		switch(e.getKeyChar())
 		{
 			case('\n'):txt = !txt;break;
-			case('1'):nc.speed(1);break;
-			case('2'):nc.speed(2);break;
-			case('3'):nc.speed(3);break;
-			case('4'):nc.speed(4);break;
-			case('5'):nc.speed(5);break;
-			case('6'):nc.speed(6);break;
-			case('7'):nc.speed(7);break;
-			case('8'):nc.speed(8);break;
-			case('9'):nc.speed(9);break;
-			case('e'):nc.rotateR();break;
-			case('q'):nc.rotateL();break;
-			case('y'):nc.backwardLeft();break;
-			case('c'):nc.backwardRight();break;
-			case('w'):nc.forward();break;
-			case('s'):nc.backward();break;
-			case('a'):nc.left();break;
-			case('d'):nc.right();break;
-			case('b'):nc.rotateRst();break;
+			case('1'):nc1.speed(1);break;
+			case('2'):nc1.speed(2);break;
+			case('3'):nc1.speed(3);break;
+			case('4'):nc1.speed(4);break;
+			case('5'):nc1.speed(5);break;
+			case('6'):nc1.speed(6);break;
+			case('7'):nc1.speed(7);break;
+			case('8'):nc1.speed(8);break;
+			case('9'):nc1.speed(9);break;
+			case('e'):nc1.forwardRight();break;
+			case('q'):nc1.forwardLeft();break;
+			case('y'):nc1.backwardLeft();break;
+			case('c'):nc1.backwardRight();break;
+			case('w'):nc1.forward();break;
+			case('s'):nc1.backward();break;
+			case('a'):nc1.left();break;
+			case('d'):nc1.right();break;
+			
+			case('b'):nc1.rotateRst();nc2.rotateRst();break;
+			case('i'):nc2.rotateR();
+			case('k'):nc2.rotateR();
+			case('l'):nc1.rotateR();
+			case('j'):nc1.rotateL();
+				
 			case('f'):ig.toggleFlash();break;
 			case('g'):ig.toggleCamera();break;
 			case('h'):ig.toggleHelper();break;
 			case('x'):ig.toggleInfo();break;
 			case('v'):ig.toggleMute();break;
 			case('t'):ig.changeLang();break;
-			case(' '):nc.stop();break;
+			case(' '):nc1.stop();break;
 			
 		}
 	}
