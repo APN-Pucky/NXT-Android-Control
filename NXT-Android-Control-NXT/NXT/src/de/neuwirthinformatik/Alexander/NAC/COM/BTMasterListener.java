@@ -1,6 +1,7 @@
 package de.neuwirthinformatik.Alexander.NAC.COM;
 
 import lejos.nxt.LCD;
+import de.neuwirthinformatik.Alexander.NAC.GLOBAL.NxtCommand;
 import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.Packet;
 import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.PacketFlash;
 import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.PacketNxtCommand;
@@ -34,6 +35,7 @@ public class BTMasterListener
 		if(p.getId() == PacketStop.id)
 		{
 			PacketStop ps = (PacketStop)p;
+			nxt.execComand(new NxtCommand((short)8,0));//Reset B
 			COM.stop();
 			System.exit(ps.getCause());
 		}

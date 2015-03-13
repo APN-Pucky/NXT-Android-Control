@@ -121,18 +121,18 @@ public class COM
 		if(tts != null)tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
 	}
 	
-	public static void sendPC(Packet p)
+	public static void sendPC(final Packet p)
 	{
-		if(ac != null)ac.sendPC(p);
+		if(ac != null)new Thread(new Runnable(){public void run(){ac.sendPC(p);}});
 	}
 	
-	public static void sendNXT1(Packet p)
+	public static void sendNXT1(final Packet p)
 	{
-		if(btc1 != null)btc1.sendNXT(p);
+		if(btc1 != null)new Thread(new Runnable(){public void run(){btc1.sendNXT(p);}});
 	}
 	
-	public static void sendNXT2(Packet p)
+	public static void sendNXT2(final Packet p)
 	{
-		if(btc2 != null)btc2.sendNXT(p);
+		if(btc2 != null)new Thread(new Runnable(){public void run(){btc2.sendNXT(p);}});
 	}
 }

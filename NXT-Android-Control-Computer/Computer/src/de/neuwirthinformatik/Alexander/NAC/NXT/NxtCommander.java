@@ -6,8 +6,9 @@ import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.PacketNxtCommand;
 
 public class NxtCommander 
 {
-	int lastspeed;
 	short id;
+	int b_rot = 0;
+	int lastspeed;
 	
 	public NxtCommander(short id)
 	{
@@ -88,18 +89,37 @@ public class NxtCommander
 		}
 	}
 	
-	public void rotateR()
-	{
-		exec(new NxtCommand((short) 7, -45));
-	}
-	
 	public void rotateL()
 	{
-		exec(new NxtCommand((short) 7, 45));
+		exec(new NxtCommand((short) 7, -45*7));//-45°
+	}
+	
+	public void rotateR()
+	{
+		exec(new NxtCommand((short) 7, 45*7));//45°
+	}
+	
+	public void rotateD()
+	{
+		if(b_rot<(1080-359))//~54°-18°
+		{
+			exec(new NxtCommand((short) 7, 18*20));//18°
+			b_rot+=18*20;
+		}
+	}
+	
+	public void rotateH()
+	{
+		if(b_rot>(-1800+359))//~-90°+18°
+		{
+			exec(new NxtCommand((short) 7, -18*20));//-18°
+			b_rot-=18*20;
+		}
 	}
 	
 	public void rotateRst()
 	{
+		b_rot = 0;
 		exec(new NxtCommand((short)8,0));
 	}
 }

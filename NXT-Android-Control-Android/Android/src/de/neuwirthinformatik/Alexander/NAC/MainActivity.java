@@ -138,8 +138,8 @@ public class MainActivity extends Activity
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle("Host");
 		final EditText inhost = new EditText(this);	
-		//inhost.setText("192.168.43.204:3070&00:16:53:13:04:18&00:16:53:0C:94:6B");
-		inhost.setText("192.168.0.102:3070&00:16:53:13:04:18&00:16:53:0C:94:6B");
+		inhost.setText("192.168.43.204:3070&00:16:53:13:04:18&00:16:53:0C:94:6B");
+		//inhost.setText("192.168.0.102:3070&00:16:53:13:04:18&00:16:53:0C:94:6B");
 		builder.setView(inhost);
 		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() { 
 		    @Override

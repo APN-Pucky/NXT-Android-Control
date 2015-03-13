@@ -29,7 +29,7 @@ public class DataThread extends Thread
 				e.printStackTrace();
 			}
 			LCD.drawString(""+ nxt.getDistance(), 0, 7);
-			COM.sendAndro(new PacketMapData((((Motor.B.getTachoCount()%360)+360)%360),-1,-1,-1,nxt.getDistance()));
+			COM.sendAndro(new PacketMapData(((((Motor.B.getTachoCount()/7)%360)+360)%360),-1,-1,-1,nxt.getDistance()));
 		}
 	}
 	

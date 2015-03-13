@@ -50,14 +50,14 @@ public class COM
 		ac = null;
 		s = null;
 	}
-	
-	public static void sendAndro(Packet p)
-	{
-		if(ac != null)ac.sendAndro(p);
-	}
 
-	public static void sendSpeaker(byte[] audio) 
+	public static void sendSpeaker(final byte[] audio) 
 	{
 		if(s != null)s.speak(audio);
+	}
+	
+	public static void sendAndro(final Packet p)
+	{
+		if(ac != null)new Thread(new Runnable(){public void run(){ac.sendAndro(p);}});
 	}
 }
