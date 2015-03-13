@@ -37,8 +37,8 @@ public class COM
 		btmt = null;
 	}
 	
-	public static void sendAndro(final Packet p)
+	public static void sendAndro(Packet p)
 	{
-		if(btmt != null)new Thread(new Runnable(){public void run(){btmt.sendAndro(p);}});
+		if(btmt != null)btmt.sendAndro(p);
 	}
 }

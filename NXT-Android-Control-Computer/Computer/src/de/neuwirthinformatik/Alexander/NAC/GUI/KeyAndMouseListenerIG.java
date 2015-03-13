@@ -119,8 +119,8 @@ public class KeyAndMouseListenerIG implements KeyListener,MouseListener
 			case('d'):nc1.right();break;
 			
 			case('b'):nc1.rotateRst();nc2.rotateRst();break;
-			case('i'):nc2.rotateL();break;// /\
-			case('k'):nc2.rotateR();break;// \/
+			case('i'):nc2.rotateH();break;// /\
+			case('k'):nc2.rotateD();break;// \/
 			case('l'):nc1.rotateR();break;// ->
 			case('j'):nc1.rotateL();break;// <-
 				

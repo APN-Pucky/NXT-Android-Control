@@ -101,19 +101,19 @@ public class NxtCommander
 	
 	public void rotateD()
 	{
-		if(b_rot<(1080-359))//~54°-18°
+		if(b_rot<54)
 		{
 			exec(new NxtCommand((short) 7, 18*20));//18°
-			b_rot+=18*20;
+			b_rot+=18;
 		}
 	}
 	
 	public void rotateH()
 	{
-		if(b_rot>(-1800+359))//~-90°+18°
+		if(b_rot>-90)
 		{
 			exec(new NxtCommand((short) 7, -18*20));//-18°
-			b_rot-=18*20;
+			b_rot-=18;
 		}
 	}
 	

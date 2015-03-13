@@ -51,13 +51,13 @@ public class COM
 		s = null;
 	}
 
-	public static void sendSpeaker(final byte[] audio) 
+	public static void sendSpeaker(byte[] audio) 
 	{
 		if(s != null)s.speak(audio);
 	}
 	
-	public static void sendAndro(final Packet p)
+	public static void sendAndro(Packet p)
 	{
-		if(ac != null)new Thread(new Runnable(){public void run(){ac.sendAndro(p);}});
+		if(ac != null)ac.sendAndro(p);
 	}
 }
