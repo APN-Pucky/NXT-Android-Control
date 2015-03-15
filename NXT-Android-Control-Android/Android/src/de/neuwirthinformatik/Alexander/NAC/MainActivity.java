@@ -188,6 +188,7 @@ public class MainActivity extends Activity
 	@Override
 	public void onStop()
 	{
+		mAudio.close();
 		COM.sendPC(new PacketStop((short)0));
 		COM.sendNXT1(new PacketStop((short)0));
 		COM.sendNXT2(new PacketStop((short)0));

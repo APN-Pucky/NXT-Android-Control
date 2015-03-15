@@ -25,10 +25,18 @@ public class AudioThread extends Thread
             minBufSize = recorder.read(buffer, 0, buffer.length);
             if(!mute)COM.sendPC(new PacketAudio(-1,buffer));
         }
+		recorder.stop();
+		recorder.release();
 	}
 	
 	public void toggleMute()
 	{
 		mute = !mute;
+	}
+	
+	public void close()
+	{
+		this.stop();
+		running = false;
 	}
 }

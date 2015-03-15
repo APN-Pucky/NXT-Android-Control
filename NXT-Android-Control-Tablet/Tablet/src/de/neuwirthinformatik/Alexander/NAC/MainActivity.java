@@ -3,22 +3,28 @@ package de.neuwirthinformatik.Alexander.NAC;
 import java.io.IOException;
 import java.net.ServerSocket;
 
-import de.neuwirthinformatik.Alexander.NAC.COM.AndroServerThread;
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.SparseArray;
+import android.view.MotionEvent;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.Toast;
+import de.neuwirthinformatik.Alexander.NAC.COM.AndroServerThread;
 
 public class MainActivity extends Activity
 {
 	public static MainActivity _this;
 	public static final int PORT = 3070;
+	public static final long millirepaint = 33;
 	public CamView camview;
+	public MotionHandler motionhandler;
+	private SparseArray<float[]> pointers = new SparseArray<float[]>();
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -32,10 +38,35 @@ public class MainActivity extends Activity
 		FrameLayout preview = (FrameLayout) findViewById(R.id.frameLayout1);
         preview.addView(camview);
         camview.setImageDrawable(this.getWallpaper());
+        motionhandler = new MotionHandler();
         //init
         initServer();
         initVol();
         initKA();
+	}
+	
+	@Override
+	public boolean onTouchEvent(MotionEvent e)
+	{
+		switch(e.getAction() & MotionEvent.ACTION_MASK)
+		{
+		case MotionEvent.ACTION_DOWN:
+		case MotionEvent.ACTION_POINTER_DOWN:
+			for(int i = 0; i < e.getPointerCount();i++)
+			{
+				pointers.put(e.getPointerId(i), new float[]{e.getX(i),e.getY(i)});
+			}
+			break;
+		case MotionEvent.ACTION_UP:
+		case MotionEvent.ACTION_POINTER_UP:
+			for(int i = 0; i < e.getPointerCount();i++)
+			{
+				float[] fa = pointers.get(e.getPointerId(i));
+				motionhandler.swipe(fa[0], fa[1], e.getX(i), e.getY(i));
+			}
+			break;
+		}
+		return false;
 	}
 	
 	private void initServer()

@@ -89,7 +89,7 @@ public class BAC
 	
 	public static BufferedImage toImage(byte[] bytes)
 	{
-		BufferedImage img = null;
+		/*BufferedImage img = null;
 		try 
 		{
 			img = ImageIO.read(new ByteArrayInputStream(bytes));
@@ -99,6 +99,7 @@ public class BAC
 			System.err.println(e);
 			e.printStackTrace();
 		}
-		return img;
+		return img;*/
+		return null;
 	}
 }

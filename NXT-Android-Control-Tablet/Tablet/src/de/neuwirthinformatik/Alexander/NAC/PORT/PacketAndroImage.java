@@ -9,8 +9,6 @@ import de.neuwirthinformatik.Alexander.NAC.UTIL.BAC;
 
 public class PacketAndroImage extends PacketImage
 {
-	
-	
 	public PacketAndroImage(short cam, YuvImage img)
 	{
 		super();

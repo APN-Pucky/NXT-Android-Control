@@ -8,10 +8,13 @@ import de.neuwirthinformatik.Alexander.NAC.GLOBAL.Packets.PacketAudio;
 public class COM 
 {
 	static AndroConnectedThread ac;
+	static Speaker s;
 	
 	public static void setup(AndroConnectedThread act)
 	{
 		ac = act;
+
+		s = new Speaker();
 	}
 	
 	public static void stop()
@@ -42,6 +45,12 @@ public class COM
 			}
 		}
 		ac = null;
+		s = null;
+	}
+
+	public static void sendSpeaker(byte[] audio) 
+	{
+		if(s != null)s.speak(audio);
 	}
 	
 	public static void sendAndro(Packet p)

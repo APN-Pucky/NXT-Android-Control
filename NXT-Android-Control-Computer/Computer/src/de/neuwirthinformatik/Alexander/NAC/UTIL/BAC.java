@@ -52,7 +52,7 @@ public class BAC
 		byte[] data = null;
  		try 
  		{
-			ImageIO.write(img, "jpg", baos );
+			ImageIO.write(img, "jpg", baos);
 			baos.flush();
 			data = baos.toByteArray();
 	 		baos.close();
