@@ -1,15 +1,9 @@
 package de.neuwirthinformatik.Alexander.NAC.COM;
 
-
-
-import java.awt.Toolkit;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-
-import de.neuwirthinformatik.Alexander.NAC.GUI.ImageGUI;
-import de.neuwirthinformatik.Alexander.NAC.NXT.NxtCommander;
 
 public class AndroServerThread extends Thread
 {
@@ -21,6 +15,7 @@ public class AndroServerThread extends Thread
 		this.server = server;
 	}
 
+	@Override
 	public void run() 
 	{
 		while(true)
