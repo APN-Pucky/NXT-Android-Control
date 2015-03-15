@@ -13,10 +13,10 @@ public class DP
 	public void stop()
 	{
 		//test
-		int tmp = Motor.C.getTachoCount();
+		//int tmp = Motor.C.getTachoCount();
 		Motor.A.stop();
 		Motor.C.stop();
-		Motor.C.rotateTo(tmp);
+		//Motor.C.rotateTo(tmp);
 	}
 
 	public void arcForward(int add)
@@ -30,7 +30,7 @@ public class DP
 			}
 			else
 			{
-				Motor.A.forward();
+				Motor.A.backward();
 			}
 		}
 		else
@@ -42,7 +42,7 @@ public class DP
 			}
 			else
 			{
-				Motor.C.forward();
+				Motor.C.backward();
 			}
 		}
 	}
