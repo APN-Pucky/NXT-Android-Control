@@ -15,8 +15,8 @@ public class ImageImplementIG extends JPanel
 	Image img;
 	int width;
 	int height;
-	boolean helper = false;
-	boolean info = true;
+	boolean helper;
+	boolean info;
 	
 
     public ImageImplementIG(ImageGUI ig, int widht, int height) 
@@ -24,7 +24,7 @@ public class ImageImplementIG extends JPanel
     	this.ig = ig;
     	this.width = widht;
     	this.height = height;
-    	helper = true;
+    	helper = false;
     	info = true;
     }
     
