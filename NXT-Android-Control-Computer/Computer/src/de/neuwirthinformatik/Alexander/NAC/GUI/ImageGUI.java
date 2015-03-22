@@ -50,7 +50,7 @@ public class ImageGUI extends JFrame
 	    	jmv.setPreferredSize(new Dimension(300, 300));
 	    	jmv.setZoom(14);
 	    	jmv.setZoomContolsVisible(false);
-	    	jmv.setDisplayPositionByLatLon(51.901332, 7.64007, jmv.getZoom());
+	    	jmv.setDisplayPositionByLatLon(51.0144795,6.98353, jmv.getZoom());
 	    	jmv.setLocation(width-jmv.getWidth(), 0);
 	    	
 	    	txt = new JTextArea(1,20);
@@ -80,7 +80,7 @@ public class ImageGUI extends JFrame
 	    add(imagepanel);
 	    	
 	    setVisible(true);
-	    nmm = new NxtMapMarker(this,51.901332, 7.64007);
+	    nmm = new NxtMapMarker(this,51.0144795,6.98353);
 	    jmv.addMapMarker(nmm);
 	    wlig.setIG(this);
 	    kamlig.setIG(this);

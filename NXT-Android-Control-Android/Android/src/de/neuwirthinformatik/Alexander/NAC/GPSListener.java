@@ -13,8 +13,12 @@ public class GPSListener implements LocationListener
 	/*
 	 * 
 	 */
-	static double longitude = 7.64007;
-	static double latitude = 51.901332;
+	//Leverkusen
+	static double longitude = 6.98353;
+	static double latitude = 51.0144795;
+	//Hiltrup
+	//static double longitude = 7.64007;
+	//static double latitude = 51.901332;
 	
 	
 	public static double getLongitude()
