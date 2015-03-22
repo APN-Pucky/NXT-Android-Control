@@ -1,5 +1,6 @@
 package de.neuwirthinformatik.Alexander.NAC;
 
+import android.util.Log;
 import android.widget.TextView;
 
 public class InfoText
@@ -13,17 +14,18 @@ public class InfoText
 	
 	public void update()
 	{
-		String s = "Distance: " +MainActivity._this.getSonar() + "\n";
-		s += "Speed: " + MainActivity._this.getSpeed()+ "\n";
-		s += "Latitude: " + (MainActivity._this.getLatitude()) + "\n";
-		s += "Longitude: " + (MainActivity._this.getLongitude()) + "\n";
-		double c = calc(MainActivity._this.getLongitude());
-		s += "Compass: " + (c>45?c>135?c>225?c>315?"N":"W":"S":"E":"N") + "\n";
-		s += "Camera: " + (MainActivity._this.getFrontCamera()?"FRONT":"BACK") + "\n";
-		s += "Mute: " + (MainActivity._this.getMute()?"ON":"OFF") + "\n";
-		s += "Flash: " + (MainActivity._this.getFlash()?"ON":"OFF") + "\n";
-		s += "Language: " + (MainActivity._this.getLang())+ "\n";
-		tv.setText(s);
+		double c = calc(MainActivity._this.getCompass());
+		Log.e("C",""+c);
+		final String s = "Distance: " +MainActivity._this.getSonar() + "\n"
+			+ "Speed: " + MainActivity._this.getSpeed()+ "\n"
+			+ "Latitude: " + (MainActivity._this.getLatitude()) + "\n"
+			+ "Longitude: " + (MainActivity._this.getLongitude()) + "\n"
+			+ "Compass: " + (c>45?c>135?c>225?c>315?"N":"W":"S":"E":"N") + "\n"
+			+ "Camera: " + (MainActivity._this.getFrontCamera()?"FRONT":"BACK") + "\n"
+			+ "Mute: " + (MainActivity._this.getMute()?"ON":"OFF") + "\n"
+			+ "Flash: " + (MainActivity._this.getFlash()?"ON":"OFF") + "\n"
+			+ "Language: " + (MainActivity._this.getLang())+ "\n";
+		MainActivity._this.runOnUiThread(new Runnable(){public void run(){tv.setText(s);}});
 	}
 	double calc(double angle)
 	{

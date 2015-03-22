@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.MotionEvent;
 import android.view.View;
@@ -121,6 +122,7 @@ public class MainActivity extends Activity
 		this.com = compass;
 		this.rot = rot;
 		this.sonar = sonar;
+		infotext.update();
 	}
 	
 	
