@@ -13,10 +13,10 @@ public class DP
 	public void stop()
 	{
 		//test
-		int tmp = Motor.C.getTachoCount();
+		//int tmp = Motor.C.getTachoCount();
 		Motor.A.stop();
 		Motor.C.stop();
-		Motor.C.rotateTo(tmp);
+		//Motor.C.rotateTo(tmp);
 	}
 
 	public void arcForward(int add)
