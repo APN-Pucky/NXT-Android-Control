@@ -1,10 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-    
-  <FrameLayout android:id="@+id/frameLayout1" 
-      android:layout_height="fill_parent" 
-      android:layout_width="fill_parent" />
-</LinearLayout>
+    android:layout_height="fill_parent" >
+
+    	<ImageView
+    	    android:id="@+id/image_view"
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="fill_parent" 
+    	    android:src="@drawable/instructions2" />
+    	
+    	<TextView
+    	    android:id="@+id/text_info"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="@string/text_info"
+    	    android:textColor="#00cc00"
+    	    android:textAppearance="?android:attr/textAppearanceLarge" />
+    	
+		<Button
+		    android:id="@+id/button_stop"
+		    android:layout_width="match_parent"
+		    android:layout_height="100dp"
+		    android:layout_gravity="bottom"
+		    android:onClick="@string/button_stop"
+		    android:text="@string/button_stop" />
+		
+    	<LinearLayout
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:layout_gravity="center_horizontal">
+    	<Button
+    	    android:id="@+id/button_faster"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="@string/button_faster"
+    	    android:onClick="@string/button_faster"/>
+    	<Button
+    	    android:id="@+id/button_reset"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="@string/button_reset" 
+    	    android:onClick="@string/button_reset"/>
+    	    
+    	<Button
+    	    android:id="@+id/button_flash"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="@string/button_flash" 
+    	    android:onClick="@string/button_flash"/>
+
+    	<Button
+    	    android:id="@+id/button_camera"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="@string/button_camera" 
+    	    android:onClick="@string/button_camera"/>
+    	<Button
+    	    android:id="@+id/button_mute"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="@string/button_mute" 
+    	    android:onClick="@string/button_mute"/>
+    	<Button
+    	    android:id="@+id/button_lang"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="@string/button_lang" 
+    	    android:onClick="@string/button_lang"/>
+    	<Button
+    	    android:id="@+id/button_tts"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="@string/button_tts" 
+    	    android:onClick="@string/button_tts"/>
+    	<Button
+    	    android:id="@+id/button_slower"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="@string/button_slower" 
+    	    android:onClick="@string/button_slower"/>
+    	</LinearLayout>
+
+    	
+
+</FrameLayout>

@@ -14,7 +14,7 @@ public class Test
 {
 	public static void main(String[] args) throws IOException
 	{
-		//ImageGUI ig = new ImageGUI(Toolkit.getDefaultToolkit().getScreenSize().width,Toolkit.getDefaultToolkit().getScreenSize().height,15,new NxtCommander((short)1),new NxtCommander((short)2));
+		ImageGUI ig = new ImageGUI(Toolkit.getDefaultToolkit().getScreenSize().width,Toolkit.getDefaultToolkit().getScreenSize().height,15,new NxtCommander((short)1),new NxtCommander((short)2));
 		//ig.jmv.addMapMarker(ig,new NxtMapMarker(51.916667, 7.686111));
 		//ig.updateImage(ImageIO.read(new File("E:\\Alexander\\OSM\\Tiles\\0\\0\\0.png")));
 	}

@@ -30,7 +30,8 @@ public class AndroConnectedListener
 		}
 		if(p.getId() == PacketMapData.id)
 		{
-			
+			PacketMapData pmd = (PacketMapData)p;
+			MainActivity._this.updatePosition(pmd.getLatitude(),pmd.getLongitude(),pmd.getCompass(),pmd.getMotor_B_Rotation(),pmd.getSonar());
 		}
 		if(p.getId() == PacketStop.id)
 		{

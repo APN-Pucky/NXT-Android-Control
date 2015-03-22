@@ -35,10 +35,13 @@ public class ImageGUI extends JFrame
 	boolean mute = false;
 	boolean flash = false;
 	String lang = "de_DE";
+	NxtCommander nc1,nc2;
 	
 	public ImageGUI(int width, int height, int parm_millirepaint,NxtCommander nc1,NxtCommander nc2)
 	{
 		setTitle("NxtAndroControl");
+		this.nc1 = nc1;
+		this.nc2 = nc2;
 		KeyAndMouseListenerIG kamlig = new KeyAndMouseListenerIG(nc1,nc2);
 		WindowListenerIG wlig = new WindowListenerIG();
 		//setLayout(null);
@@ -165,6 +168,11 @@ public class ImageGUI extends JFrame
 	public String getLang()
 	{
 		return lang;
+	}
+	
+	public int getSpeed()
+	{
+		return nc1.getSpeed();
 	}
 	
 	public void updateImage(BufferedImage img)

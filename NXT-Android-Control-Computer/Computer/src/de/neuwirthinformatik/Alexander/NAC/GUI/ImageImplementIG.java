@@ -74,14 +74,16 @@ public class ImageImplementIG extends JPanel
     	g.setFont(gf);
 		String s = "Distance: " +ig.getNMM().getSonar() + "\n";
 		g.drawString(s, 30, 30);
-		s = "Camera: " + (ig.getFrontCamera()?"FRONT":"BACK") + "\n";
+		s = "Speed: " + ig.getSpeed() + "\n";
 		g.drawString(s, 30, 50);
-		s = "Mute: " + (ig.getMute()?"ON":"OFF") + "\n";
+		s = "Camera: " + (ig.getFrontCamera()?"FRONT":"BACK") + "\n";
 		g.drawString(s, 30, 70);
-		s = "Flash: " + (ig.getFlash()?"ON":"OFF") + "\n";
+		s = "Mute: " + (ig.getMute()?"ON":"OFF") + "\n";
 		g.drawString(s, 30, 90);
-		s = "Language: " + (ig.getLang())+ "\n";
+		s = "Flash: " + (ig.getFlash()?"ON":"OFF") + "\n";
 		g.drawString(s, 30, 110);
+		s = "Language: " + (ig.getLang())+ "\n";
+		g.drawString(s, 30, 130);
 	}
 
 	private void drawImage(Graphics g)

@@ -2,6 +2,14 @@
 <resources>
 
     <string name="app_name">NAC-Control</string>
-    <string name="hello_world">Hacked RT, world!</string>
-
+	<string name="button_stop">STOP</string>
+	<string name="button_flash">FLASH</string>
+	<string name="button_camera">CAMERA</string>
+	<string name="button_mute">AUDIO</string>
+	<string name="button_lang">LANG</string>
+	<string name="button_tts">TTS</string>
+	<string name="button_reset">RESET</string>
+	<string name="button_slower">SLOWER</string>
+	<string name="button_faster">FASTER</string>
+	<string name="text_info">Info</string>
 </resources>

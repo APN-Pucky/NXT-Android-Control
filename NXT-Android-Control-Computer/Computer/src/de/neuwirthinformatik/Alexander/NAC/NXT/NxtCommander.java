@@ -8,7 +8,7 @@ public class NxtCommander
 {
 	short id;
 	int b_rot = 0;
-	int lastspeed;
+	int lastspeed = 3;
 	
 	public NxtCommander(short id)
 	{
@@ -63,6 +63,11 @@ public class NxtCommander
 	public void stop()
 	{
 		exec(new NxtCommand((short)6,0));
+	}
+	
+	public int getSpeed()
+	{
+		return lastspeed;
 	}
 	
 	public void speed(int number)
